@@ -2,12 +2,12 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "AESCryptoUploader"
-#define MyAppVersion "1.0.0.0"
+#define MyAppVersion "1.0.0.1"
 #define MyAppPublisher "Hämmer Electronics"
 #define MyAppURL "softwareload24.de.tl"
 #define MyAppExeName "AESCryptoUploader.exe"
-#define MyPath "I:\Todo\Unfertig\AESCryptoUploader"
-#define MyCopyRight "Copyright (©) HÃ¤mmer Electronics"
+#define MyPath "C:\Users\tim\Desktop\Updaten_Snyk\AESCryptoUploader\Git"
+#define MyCopyRight "Copyright (©) Hämmer Electronics"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.

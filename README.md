@@ -1,13 +1,14 @@
 AESCryptoUploader
 ====================================
 
-AESCryptoUploader is a project to upload encrypted files to [Google Drive](https://www.google.com/drive/) and [Mega.nz](https://mega.nz/). The project was written and tested in .Net 4.7.2.
+AESCryptoUploader is a project to upload encrypted files to [Google Drive](https://www.google.com/drive/) and [Mega.nz](https://mega.nz/). The project was written and tested in .Net 4.8.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/2lenu7vx01dhonu9?svg=true)](https://ci.appveyor.com/project/SeppPenner/aescryptouploader)
 [![GitHub issues](https://img.shields.io/github/issues/SeppPenner/AESCryptoUploader.svg)](https://github.com/SeppPenner/AESCryptoUploader/issues)
 [![GitHub forks](https://img.shields.io/github/forks/SeppPenner/AESCryptoUploader.svg)](https://github.com/SeppPenner/AESCryptoUploader/network)
 [![GitHub stars](https://img.shields.io/github/stars/SeppPenner/AESCryptoUploader.svg)](https://github.com/SeppPenner/AESCryptoUploader/stargazers)
 [![GitHub license](https://img.shields.io/badge/license-AGPL-blue.svg)](https://raw.githubusercontent.com/SeppPenner/AESCryptoUploader/master/License.txt)
+[![Known Vulnerabilities](https://snyk.io/test/github/SeppPenner/AESCryptoUploader/badge.svg)](https://snyk.io/test/github/SeppPenner/AESCryptoUploader)
 
 # Screenshots from the GUI
 ![Screenshot from the GUI German](https://github.com/SeppPenner/AESCryptoUploader/blob/master/Screenshot_DE.PNG "Screenshot from the GUI German")
@@ -39,4 +40,5 @@ You get the client id for [Google Drive](https://www.google.com/drive/) followin
 Change history
 --------------
 
+* **Version 1.0.0.1 (2019-05-07)** : Updated .Net version to 4.8.
 * **Version 1.0.0.0 (2018-12-27)** : 1.0 release.
