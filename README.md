@@ -19,19 +19,19 @@ AESCryptoUploader is a project to upload encrypted files to [Google Drive](https
 <?xml version="1.0" encoding="utf-8"?>
 <Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Accounts>
-		<Account>
-			<UserName>test@test.email</UserName>
-			<Password>YourPassword</Password>
-			<ClientId></ClientId>
-			<Name>Mega</Name>
-		</Account>
-		<Account>
-			<UserName>Test@googlemail.com</UserName>
-			<Password>YourPassword</Password>
-			<ClientId>something.apps.googleusercontent.com</ClientId>
-			<Name>GDrive</Name>
-		</Account>
-	</Accounts>
+        <Account>
+            <UserName>test@test.email</UserName>
+            <Password>YourPassword</Password>
+            <ClientId></ClientId>
+            <Name>Mega</Name>
+        </Account>
+        <Account>
+            <UserName>Test@googlemail.com</UserName>
+            <Password>YourPassword</Password>
+            <ClientId>something.apps.googleusercontent.com</ClientId>
+            <Name>GDrive</Name>
+        </Account>
+    </Accounts>
 </Config>
 ```
 
