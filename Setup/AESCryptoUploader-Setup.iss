@@ -2,11 +2,11 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "AESCryptoUploader"
-#define MyAppVersion "1.0.0.1"
+#define MyAppVersion "1.0.1.0"
 #define MyAppPublisher "Hämmer Electronics"
 #define MyAppURL "softwareload24.de.tl"
 #define MyAppExeName "AESCryptoUploader.exe"
-#define MyPath "C:\Users\tim\Desktop\Updaten_Snyk\AESCryptoUploader\Git"
+#define MyPath "C:\Users\Tim\Documents\Git\C# und VB\AESCryptoUploader\Git"
 #define MyCopyRight "Copyright (©) Hämmer Electronics"
 
 [Setup]
