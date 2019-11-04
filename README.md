@@ -7,7 +7,7 @@ AESCryptoUploader is a project to upload encrypted files to [Google Drive](https
 [![GitHub issues](https://img.shields.io/github/issues/SeppPenner/AESCryptoUploader.svg)](https://github.com/SeppPenner/AESCryptoUploader/issues)
 [![GitHub forks](https://img.shields.io/github/forks/SeppPenner/AESCryptoUploader.svg)](https://github.com/SeppPenner/AESCryptoUploader/network)
 [![GitHub stars](https://img.shields.io/github/stars/SeppPenner/AESCryptoUploader.svg)](https://github.com/SeppPenner/AESCryptoUploader/stargazers)
-[![GitHub license](https://img.shields.io/badge/license-AGPL-blue.svg)](https://raw.githubusercontent.com/SeppPenner/AESCryptoUploader/master/License.txt)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://raw.githubusercontent.com/SeppPenner/AESCryptoUploader/master/License.txt)
 [![Known Vulnerabilities](https://snyk.io/test/github/SeppPenner/AESCryptoUploader/badge.svg)](https://snyk.io/test/github/SeppPenner/AESCryptoUploader)
 
 # Screenshots from the GUI
