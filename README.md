@@ -1,7 +1,7 @@
 AESCryptoUploader
 ====================================
 
-AESCryptoUploader is a project to upload encrypted files to [Google Drive](https://www.google.com/drive/) and [Mega.nz](https://mega.nz/). The project was written and tested in .Net 4.8.
+AESCryptoUploader is a project to upload encrypted files to [Google Drive](https://www.google.com/drive/) and [Mega.nz](https://mega.nz/). The project was written and tested in .Net 5.0.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/2lenu7vx01dhonu9?svg=true)](https://ci.appveyor.com/project/SeppPenner/aescryptouploader)
 [![GitHub issues](https://img.shields.io/github/issues/SeppPenner/AESCryptoUploader.svg)](https://github.com/SeppPenner/AESCryptoUploader/issues)
@@ -40,6 +40,4 @@ You get the client id for [Google Drive](https://www.google.com/drive/) followin
 Change history
 --------------
 
-* **Version 1.0.1.0 (2019-10-13)** : Updated nuget packages, added GitVersionTask.
-* **Version 1.0.0.1 (2019-05-07)** : Updated .Net version to 4.8.
-* **Version 1.0.0.0 (2018-12-27)** : 1.0 release.
+See the [Changelog](https://github.com/SeppPenner/AESCryptoUploader/blob/master/Changelog.md).
