@@ -10,11 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GitVersionTask" Version="5.5.0">
+    <PackageReference Include="GitVersionTask" Version="5.5.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Google.Apis.Drive.v3" Version="1.49.0.2131" />
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.49.0.2166" />
     <PackageReference Include="HaemmerElectronics.SeppPenner.Language" Version="1.0.7" />
     <PackageReference Include="MegaApiClient" Version="1.8.2" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
