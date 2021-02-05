@@ -14,7 +14,7 @@ AESCryptoUploader is a project to upload encrypted files to [Google Drive](https
 ![Screenshot from the GUI German](https://github.com/SeppPenner/AESCryptoUploader/blob/master/Screenshot_DE.PNG "Screenshot from the GUI German")
 ![Screenshot from the GUI English](https://github.com/SeppPenner/AESCryptoUploader/blob/master/Screenshot_EN.PNG "Screenshot from the GUI English")
 
-# The configuration file needs to look like this:
+# The configuration file needs to look like this
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
