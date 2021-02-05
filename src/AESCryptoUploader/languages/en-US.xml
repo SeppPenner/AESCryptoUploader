@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Identifier>en-US</Identifier> <!--According to https://msdn.microsoft.com/de-de/library/ee825488(v=cs.20).aspx-->
+	<Name>English (US)</Name>
+	<Words>
+		<Word>
+			<Key>SelectLanguage</Key>
+			<Value>Select language:</Value>
+		</Word>
+		<Word>
+			<Key>StartupSuccessfull</Key>
+			<Value>The application was successfully started</Value>
+		</Word>
+		<Word>
+			<Key>LanguageChanged</Key>
+			<Value>The language was changed to </Value>
+		</Word>
+		<Word>
+			<Key>Account</Key>
+			<Value>Account</Value>
+		</Word>
+		<Word>
+			<Key>Username</Key>
+			<Value>Username</Value>
+		</Word>
+		<Word>
+			<Key>FreeSpaceInMb</Key>
+			<Value>Free space in MB</Value>
+		</Word>
+		<Word>
+			<Key>TotalSpaceInMb</Key>
+			<Value>Total space in MB</Value>
+		</Word>
+		<Word>
+			<Key>UsedSpaceInMb</Key>
+			<Value>Used space in MB</Value>
+		</Word>
+		<Word>
+			<Key>UsedSpaceInPercent</Key>
+			<Value>Used space in %</Value>
+		</Word>
+		<Word>
+			<Key>AccountInfoTitle</Key>
+			<Value>Account information</Value>
+		</Word>
+		<Word>
+			<Key>AccountInfoToolStripMenuItem</Key>
+			<Value>Account information</Value>
+		</Word>
+		<Word>
+			<Key>ChooseFiles</Key>
+			<Value>Choose files</Value>
+		</Word>
+		<Word>
+			<Key>ChooseOutputFolder</Key>
+			<Value>Choose output folder</Value>
+		</Word>
+		<Word>
+			<Key>FilesCaption</Key>
+			<Value>Files:</Value>
+		</Word>
+		<Word>
+			<Key>OutputFolderCaption</Key>
+			<Value>Output folder:</Value>
+		</Word>
+		<Word>
+			<Key>EncryptAndUploadText</Key>
+			<Value>Encrypt and upload</Value>
+		</Word>
+		<Word>
+			<Key>SelectFolderAndFilesCaption</Key>
+			<Value>Select folder and files</Value>
+		</Word>
+		<Word>
+			<Key>SelectFolderAndFilesText</Key>
+			<Value>Please select folder and files</Value>
+		</Word>
+		<Word>
+			<Key>UploadFinishedCaption</Key>
+			<Value>Upload finished</Value>
+		</Word>
+		<Word>
+			<Key>UploadFinishedText</Key>
+			<Value>Upload is finished</Value>
+		</Word>
+		<Word>
+			<Key>EncryptionFinished</Key>
+			<Value>The encryption of {0} is finished.</Value>
+		</Word>
+		<Word>
+			<Key>UploadFinished</Key>
+			<Value>The upload of {0} is finished.</Value>
+		</Word>
+		<Word>
+			<Key>FileName</Key>
+			<Value>File name</Value>
+		</Word>
+		<Word>
+			<Key>UploadProgress</Key>
+			<Value>Upload progress</Value>
+		</Word>
+		<Word>
+			<Key>UploadProgressTitle</Key>
+			<Value>Upload progress</Value>
+		</Word>
+		<Word>
+			<Key>Hoster</Key>
+			<Value>Hoster</Value>
+		</Word>
+	</Words>
+</Language>

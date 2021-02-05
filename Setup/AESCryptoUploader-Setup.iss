@@ -42,23 +42,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\AESCryptoUploader.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\AESCryptoUploader.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\Config.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\Google.Apis.Auth.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\Google.Apis.Auth.PlatformServices.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\Google.Apis.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\Google.Apis.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\Google.Apis.Drive.v3.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\Languages.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\languages\*"; DestDir: "{app}\languages\"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\log4net.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\MegaApiClient.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\Serilog.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\Serilog.Sinks.File.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\SharpAESCrypt.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\AESCryptoUploader\bin\Release\net5.0-windows\License.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\src\AESCryptoUploader\bin\publish\*"; DestDir: "{app}\languages\"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
