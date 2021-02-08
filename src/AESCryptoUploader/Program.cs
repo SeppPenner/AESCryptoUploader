@@ -12,6 +12,8 @@ namespace AESCryptoUploader
     using System;
     using System.Windows.Forms;
 
+    using Serilog;
+
     /// <summary>
     /// The main program.
     /// </summary>
@@ -23,6 +25,10 @@ namespace AESCryptoUploader
         [STAThread]
         public static void Main()
         {
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Main());
