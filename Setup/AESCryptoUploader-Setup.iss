@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "AESCryptoUploader"
-#define MyAppVersion "1.0.1.0"
+#define MyAppVersion "1.0.3.0"
 #define MyAppPublisher "Hämmer Electronics"
 #define MyAppURL "softwareload24.de.tl"
 #define MyAppExeName "AESCryptoUploader.exe"
