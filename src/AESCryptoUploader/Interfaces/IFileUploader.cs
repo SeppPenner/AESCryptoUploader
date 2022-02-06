@@ -35,9 +35,6 @@ namespace AESCryptoUploader.Interfaces
         /// <summary>
         /// Handles the the upload progress changed event for mega.nz.
         /// </summary>
-        // ReSharper disable once EventNeverSubscribedTo.Global
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
-        // ReSharper disable once UnusedMemberInSuper.Global
         event EventHandler OnUploadProgressChangedMega;
 
         /// <summary>
@@ -49,7 +46,6 @@ namespace AESCryptoUploader.Interfaces
         /// Uploads the file to filehorst.de.
         /// </summary>
         /// <returns>The result as <see cref="string"/>.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         string UploadToFilehorst();
 
         /// <summary>
@@ -62,7 +58,6 @@ namespace AESCryptoUploader.Interfaces
         /// Uploads the file to mega.nz.
         /// </summary>
         /// <returns>The result as <see cref="string"/>.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         Task<string> UploadToMega();
     }
 }

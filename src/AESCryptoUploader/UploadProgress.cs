@@ -70,7 +70,6 @@ namespace AESCryptoUploader
         /// <param name="hoster">The hoster.</param>
         /// <param name="fileName">The file name.</param>
         /// <param name="value">The value.</param>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public void ShowProgressPublic(string hoster, string fileName, double value)
         {
             this.UiThreadInvoke(
