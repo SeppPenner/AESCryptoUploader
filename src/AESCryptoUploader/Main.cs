@@ -13,7 +13,6 @@ namespace AESCryptoUploader
     using System.Collections;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Threading;
@@ -49,7 +48,6 @@ namespace AESCryptoUploader
         /// <summary>
         /// The file cryptor.
         /// </summary>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         private readonly IFileCryptor fileCryptor = new FileCryptor();
 
         /// <summary>
@@ -65,22 +63,22 @@ namespace AESCryptoUploader
         /// <summary>
         /// The background worker.
         /// </summary>
-        private readonly BackgroundWorker worker = new BackgroundWorker();
+        private readonly BackgroundWorker worker = new();
 
         /// <summary>
         /// The configuration.
         /// </summary>
-        private Config configuration;
+        private Config configuration = new();
 
         /// <summary>
         /// The language.
         /// </summary>
-        private ILanguage language;
+        private ILanguage? language;
 
         /// <summary>
         /// The upload progress.
         /// </summary>
-        private UploadProgress uploadProgress;
+        private UploadProgress? uploadProgress;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Main"/> class.
@@ -159,6 +157,12 @@ namespace AESCryptoUploader
             try
             {
                 this.Initialize();
+
+                if (this.language is null)
+                {
+                    return;
+                }
+
                 Log.Information(this.language.GetWord("StartupSuccessful"));
             }
             catch (Exception ex)
@@ -187,6 +191,11 @@ namespace AESCryptoUploader
         /// </summary>
         private void InitializeUploadProgress()
         {
+            if (this.language is null)
+            {
+                return;
+            }
+
             this.uploadProgress =
                 new UploadProgress(this.language) { Text = this.language.GetWord("UploadProgressTitle") };
         }
@@ -235,7 +244,7 @@ namespace AESCryptoUploader
         /// </summary>
         private void ImportConfig()
         {
-            this.configuration = this.configurationLoader.LoadConfigFromXmlFile("Config.xml");
+            this.configuration = this.configurationLoader.LoadConfigFromXmlFile("Config.xml") ?? new Config();
         }
 
         /// <summary>
@@ -257,15 +266,19 @@ namespace AESCryptoUploader
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="eventArgs">The event args.</param>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         private void OnUploadProgressChangedMega(object sender, EventArgs eventArgs)
         {
-            if (!(sender is FileUploader fileUploader))
+            if (sender is not FileUploader fileUploader)
             {
                 return;
             }
 
-            if (!(eventArgs is UploadProgressChangedEventArgsMega eventArgsNew))
+            if (eventArgs is not UploadProgressChangedEventArgsMega eventArgsNew)
+            {
+                return;
+            }
+
+            if (this.uploadProgress is null)
             {
                 return;
             }
@@ -281,12 +294,12 @@ namespace AESCryptoUploader
         /// <param name="eventArgs">The event args.</param>
         private void OnUploadProgressChangedGDrive(object sender, EventArgs eventArgs)
         {
-            if (!(sender is FileUploader fileUploader))
+            if (sender is not FileUploader fileUploader)
             {
                 return;
             }
 
-            if (!(eventArgs is UploadProgressChangedEventArgs eventArgsNew))
+            if (eventArgs is not UploadProgressChangedEventArgs eventArgsNew)
             {
                 return;
             }
@@ -305,6 +318,11 @@ namespace AESCryptoUploader
         /// <param name="fileUploader">The file uploader.</param>
         private void ShowProgressGDrive(long sentBytes, long fileSize, IFileUploader fileUploader)
         {
+            if (this.uploadProgress is null)
+            {
+                return;
+            }
+
             if (sentBytes == fileSize)
             {
                 // ReSharper disable once RedundantCast
@@ -324,7 +342,12 @@ namespace AESCryptoUploader
         /// <param name="eventArgs">The event args.</param>
         private void OnUploadSuccessfulGDrive(object sender, EventArgs eventArgs)
         {
-            if (!(sender is FileUploader fileUploader))
+            if (sender is not FileUploader fileUploader)
+            {
+                return;
+            }
+
+            if (this.uploadProgress is null)
             {
                 return;
             }
@@ -443,6 +466,11 @@ namespace AESCryptoUploader
         /// <param name="tasks">The tasks.</param>
         private void WaitIfNotFinishedAndFinish(IReadOnlyCollection<Task> tasks)
         {
+            if (this.uploadProgress is null)
+            {
+                return;
+            }
+
             // Todo: Set to 3 for filehorst, too.
             while (this.uploadProgress.GetRowsCount() != tasks.Count * 2
                    || this.uploadProgress.GetLastRowValue() < 99)
@@ -463,7 +491,7 @@ namespace AESCryptoUploader
         {
             return (from object file in fileNames
                     select Task.Factory.StartNew(
-                        () => this.EncryptAndUploadFile(file.ToString(), outputFolder),
+                        () => this.EncryptAndUploadFile(file?.ToString() ?? string.Empty, outputFolder),
                         TaskCreationOptions.LongRunning | TaskCreationOptions.PreferFairness)).ToList();
         }
 
@@ -473,6 +501,12 @@ namespace AESCryptoUploader
         private void UploadFinished()
         {
             this.LockGui(false);
+
+            if (this.language is null)
+            {
+                return;
+            }
+
             MessageBox.Show(
                 this.language.GetWord("UploadFinishedText"),
                 this.language.GetWord("UploadFinishedCaption"),
@@ -489,6 +523,11 @@ namespace AESCryptoUploader
         {
             try
             {
+                if (this.language is null)
+                {
+                    return;
+                }
+
                 var item = this.fileCryptor.EncryptFile(fileName, outputFolder);
                 Log.Information(this.language.GetWord("EncryptionFinished") + fileName);
                 var fileUploader = this.GetFileUploader(item.NewFileName);
@@ -528,6 +567,11 @@ namespace AESCryptoUploader
             }
             else
             {
+                if (this.language is null)
+                {
+                    return;
+                }
+
                 MessageBox.Show(
                     this.language.GetWord("SelectFolderAndFilesText"),
                     this.language.GetWord("SelectFolderAndFilesCaption"),
@@ -548,6 +592,17 @@ namespace AESCryptoUploader
                     this.buttonChooseFiles.Enabled = !value;
                     this.buttonChooseOutputFolder.Enabled = !value;
                     this.buttonEncryptAndUpload.Enabled = !value;
+
+                    if (this.uploadProgress is null)
+                    {
+                        return;
+                    }
+
+                    if (this.language is null)
+                    {
+                        return;
+                    }
+
                     if (string.IsNullOrWhiteSpace(this.uploadProgress.Text))
                     {
                         this.uploadProgress =
@@ -565,6 +620,11 @@ namespace AESCryptoUploader
         /// <param name="e">The event args.</param>
         private void AccountInfosToolStripMenuItemClick(object sender, EventArgs e)
         {
+            if (this.language is null)
+            {
+                return;
+            }
+
             var accountInfos = new AccountInfos
             {
                 Config = this.configuration, CurrentLanguage = this.language, Text = this.language.GetWord("AccountInfoTitle")
@@ -583,6 +643,12 @@ namespace AESCryptoUploader
         {
             var currentLanguage = this.comboBoxLanguage.SelectedItem.ToString();
             this.languageManager.SetCurrentLanguageFromName(currentLanguage);
+
+            if (this.language is null)
+            {
+                return;
+            }
+
             Log.Information(this.language.GetWord("LanguageChanged") + currentLanguage);
         }
     }

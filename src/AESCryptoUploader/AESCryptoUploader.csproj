@@ -6,6 +6,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
     <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
     <ApplicationIcon>AES.ico</ApplicationIcon>
   </PropertyGroup>
 
@@ -14,7 +15,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Google.Apis.Drive.v3" Version="1.55.0.2502" />
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.55.0.2566" />
     <PackageReference Include="HaemmerElectronics.SeppPenner.Language" Version="1.0.11" />
     <PackageReference Include="MegaApiClient" Version="1.10.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />

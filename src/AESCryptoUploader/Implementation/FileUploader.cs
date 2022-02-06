@@ -11,7 +11,6 @@ namespace AESCryptoUploader.Implementation
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
@@ -155,7 +154,6 @@ namespace AESCryptoUploader.Implementation
         /// </summary>
         /// <param name="client">The client.</param>
         /// <param name="account">The account.</param>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         private static void LoginMega(IMegaApiClient client, Account account)
         {
             client.Login(account.UserName, account.Password);
@@ -166,7 +164,6 @@ namespace AESCryptoUploader.Implementation
         /// </summary>
         /// <param name="client">The client.</param>
         /// <returns>A <see cref="INode"/>.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         private static INode GetRootFolderMega(IMegaApiClient client)
         {
             return client.GetNodes().Single(n => n.Type == NodeType.Root);
@@ -199,7 +196,7 @@ namespace AESCryptoUploader.Implementation
         /// <param name="e">The event args.</param>
         private void OnUploadProgressChangedGDriveService(object sender, EventArgs e)
         {
-            if (!(e is UploadProgressChangedEventArgs eventArgsNew))
+            if (e is not UploadProgressChangedEventArgs eventArgsNew)
             {
                 return;
             }
@@ -212,7 +209,6 @@ namespace AESCryptoUploader.Implementation
         /// Handles the upload successful event for mega.nz.
         /// </summary>
         /// <param name="e">The event args.</param>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         private void UploadProgressChangedMega(EventArgs e)
         {
             var handler = this.OnUploadProgressChangedMega;
@@ -255,7 +251,6 @@ namespace AESCryptoUploader.Implementation
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="percentage">The percentage.</param>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         private void OnUploadProgressChangedMegaInternal(object sender, double percentage)
         {
             var eventArgs = new UploadProgressChangedEventArgsMega(percentage) { FileName = this.FileName };

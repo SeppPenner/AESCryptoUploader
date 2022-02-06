@@ -234,7 +234,7 @@ namespace AESCryptoUploader.Implementation
 
             var ext = extension.ToLower();
             var regKey = Registry.ClassesRoot.OpenSubKey(ext);
-            return regKey?.GetValue("Content Type") == null ? MimeType : regKey.GetValue("Content Type")?.ToString();
+            return regKey?.GetValue("Content Type")?.ToString() ?? MimeType;
         }
 
         /// <summary>

@@ -7,7 +7,6 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-
 namespace AESCryptoUploader.Models
 {
     using System;
@@ -22,6 +21,6 @@ namespace AESCryptoUploader.Models
         /// <summary>
         /// Gets or sets the accounts.
         /// </summary>
-        public List<Account> Accounts { get; set; }
+        public List<Account> Accounts { get; set; } = new();
     }
 }

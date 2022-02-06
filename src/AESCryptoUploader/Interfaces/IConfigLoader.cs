@@ -21,6 +21,6 @@ namespace AESCryptoUploader.Interfaces
         /// </summary>
         /// <param name="fileName">The file name.</param>
         /// <returns>A new <see cref="Config"/> object.</returns>
-        Config LoadConfigFromXmlFile(string fileName);
+        Config? LoadConfigFromXmlFile(string fileName);
     }
 }

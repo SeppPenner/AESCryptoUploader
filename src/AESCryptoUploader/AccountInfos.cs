@@ -11,7 +11,6 @@ namespace AESCryptoUploader
 {
     using System;
     using System.ComponentModel;
-    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Windows.Forms;
 
@@ -34,7 +33,7 @@ namespace AESCryptoUploader
         /// <summary>
         /// The background worker.
         /// </summary>
-        private readonly BackgroundWorker worker = new BackgroundWorker();
+        private readonly BackgroundWorker worker = new();
 
         /// <summary>
         /// The Google Drive service.
@@ -59,13 +58,13 @@ namespace AESCryptoUploader
         /// Gets or sets the configuration.
         /// </summary>
         // ReSharper disable once MemberCanBePrivate.Global
-        public Config Config { get; set; }
+        public Config Config { get; set; } = new();
 
         /// <summary>
         /// Gets or sets the current language.
         /// </summary>
         // ReSharper disable once UnusedAutoPropertyAccessor.Global
-        public ILanguage CurrentLanguage { get; set; }
+        public ILanguage? CurrentLanguage { get; set; }
 
         /// <summary>
         /// Logs the accounts.
@@ -121,7 +120,6 @@ namespace AESCryptoUploader
         /// <param name="totalSpace">The total space.</param>
         /// <param name="usedSpace">The used space.</param>
         /// <param name="filled">The filled percentage value.</param>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         private void AddAccountToTable(string hoster, string accountName, double freeSpace, double totalSpace, double usedSpace, double filled)
         {
             this.UiThreadInvoke(
@@ -148,6 +146,11 @@ namespace AESCryptoUploader
             this.UiThreadInvoke(
                 () =>
                 {
+                    if (this.CurrentLanguage is null)
+                    {
+                        return;
+                    }
+
                     this.dataGridViewAccounts.Columns[0].HeaderText = this.CurrentLanguage.GetWord("Account");
                     this.dataGridViewAccounts.Columns[1].HeaderText = this.CurrentLanguage.GetWord("Username");
                     this.dataGridViewAccounts.Columns[2].HeaderText = this.CurrentLanguage.GetWord("FreeSpaceInMb");
@@ -222,7 +225,6 @@ namespace AESCryptoUploader
         /// <summary>
         /// Checks the mega.nz accounts.
         /// </summary>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         private void CheckMegaAccounts()
         {
             try

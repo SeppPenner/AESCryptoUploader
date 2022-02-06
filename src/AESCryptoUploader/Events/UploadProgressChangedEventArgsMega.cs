@@ -30,7 +30,7 @@ namespace AESCryptoUploader.Events
         /// Gets or sets the file name.
         /// </summary>
         // ReSharper disable once UnusedMember.Global
-        public string FileName { get; set; }
+        public string FileName { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets the percentage value.
