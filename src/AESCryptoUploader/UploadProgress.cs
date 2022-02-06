@@ -9,7 +9,6 @@
 
 namespace AESCryptoUploader
 {
-    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Windows.Forms;
 

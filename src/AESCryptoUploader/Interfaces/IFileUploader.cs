@@ -10,7 +10,6 @@
 namespace AESCryptoUploader.Interfaces
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using System.Threading.Tasks;
 
     /// <summary>
