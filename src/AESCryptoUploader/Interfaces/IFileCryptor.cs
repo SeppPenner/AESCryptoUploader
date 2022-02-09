@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="IFileCryptor.cs" company="Hämmer Electronics">
 //   Copyright (c) All rights reserved.
 // </copyright>
@@ -7,21 +7,18 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace AESCryptoUploader.Interfaces
-{
-    using AESCryptoUploader.Models;
+namespace AESCryptoUploader.Interfaces;
 
+/// <summary>
+/// An interface that encrypts files.
+/// </summary>
+public interface IFileCryptor
+{
     /// <summary>
-    /// An interface that encrypts files.
+    /// Encrypts the file.
     /// </summary>
-    public interface IFileCryptor
-    {
-        /// <summary>
-        /// Encrypts the file.
-        /// </summary>
-        /// <param name="fileName">The file name.</param>
-        /// <param name="outputFolder">The output folder.</param>
-        /// <returns>An <see cref="UploadItem"/>.</returns>
-        UploadItem EncryptFile(string fileName, string outputFolder);
-    }
+    /// <param name="fileName">The file name.</param>
+    /// <param name="outputFolder">The output folder.</param>
+    /// <returns>An <see cref="UploadItem"/>.</returns>
+    UploadItem EncryptFile(string fileName, string outputFolder);
 }

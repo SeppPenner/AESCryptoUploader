@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="UploadFinishedEventArgs.cs" company="Hämmer Electronics">
 //   Copyright (c) All rights reserved.
 // </copyright>
@@ -7,37 +7,33 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace AESCryptoUploader.Events
+namespace AESCryptoUploader.Events;
+
+/// <summary>
+///     The <see cref="UploadFinishedEventArgs" /> class.
+/// </summary>
+public class UploadFinishedEventArgs : EventArgs
 {
-    using System;
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="UploadFinishedEventArgs"/> class.
+    /// </summary>
+    /// <param name="fileName">The uploaded file name.</param>
+    public UploadFinishedEventArgs(string fileName)
+    {
+        this.FileName = fileName;
+    }
 
     /// <summary>
-    ///     The <see cref="UploadFinishedEventArgs" /> class.
+    /// Gets the file name.
     /// </summary>
-    public class UploadFinishedEventArgs : EventArgs
+    private string FileName { get; }
+
+    /// <summary>
+    ///     Gets the <see cref="UploadFinishedEventArgs" /> status
+    /// </summary>
+    /// <returns>The uploaded file name of the <see cref="UploadFinishedEventArgs" /></returns>
+    public string GetStatus()
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="UploadFinishedEventArgs"/> class.
-        /// </summary>
-        /// <param name="fileName">The uploaded file name.</param>
-        public UploadFinishedEventArgs(string fileName)
-        {
-            this.FileName = fileName;
-        }
-
-        /// <summary>
-        /// Gets the file name.
-        /// </summary>
-        private string FileName { get; }
-
-        /// <summary>
-        ///     Gets the <see cref="UploadFinishedEventArgs" /> status
-        /// </summary>
-        /// <returns>The uploaded file name of the <see cref="UploadFinishedEventArgs" /></returns>
-        // ReSharper disable once UnusedMember.Global
-        public string GetStatus()
-        {
-            return this.FileName;
-        }
+        return this.FileName;
     }
 }

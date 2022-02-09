@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="IFileUploader.cs" company="Hämmer Electronics">
 //   Copyright (c) All rights reserved.
 // </copyright>
@@ -7,56 +7,48 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace AESCryptoUploader.Interfaces
+namespace AESCryptoUploader.Interfaces;
+
+/// <summary>
+/// An interface to upload files.
+/// </summary>
+public interface IFileUploader
 {
-    using System;
-    using System.Threading.Tasks;
+    /// <summary>
+    /// Handles the the upload progress changed event for Google Drive.
+    /// </summary>
+    event EventHandler? OnUploadProgressChangedGDrive;
 
     /// <summary>
-    /// An interface to upload files.
+    /// Handles the the upload successful event for Google Drive.
     /// </summary>
-    public interface IFileUploader
-    {
-        /// <summary>
-        /// Handles the the upload progress changed event for Google Drive.
-        /// </summary>
-        // ReSharper disable once EventNeverSubscribedTo.Global
-        // ReSharper disable once UnusedMemberInSuper.Global
-        event EventHandler OnUploadProgressChangedGDrive;
+    event EventHandler? OnUploadSuccessfulGDrive;
 
-        /// <summary>
-        /// Handles the the upload successful event for Google Drive.
-        /// </summary>
-        // ReSharper disable once EventNeverSubscribedTo.Global
-        // ReSharper disable once UnusedMemberInSuper.Global
-        event EventHandler OnUploadSuccessfulGDrive;
+    /// <summary>
+    /// Handles the the upload progress changed event for mega.nz.
+    /// </summary>
+    event EventHandler? OnUploadProgressChangedMega;
 
-        /// <summary>
-        /// Handles the the upload progress changed event for mega.nz.
-        /// </summary>
-        event EventHandler OnUploadProgressChangedMega;
+    /// <summary>
+    /// Gets the file name.
+    /// </summary>
+    string FileName { get; }
 
-        /// <summary>
-        /// Gets the file name.
-        /// </summary>
-        string FileName { get; }
+    /// <summary>
+    /// Uploads the file to filehorst.de.
+    /// </summary>
+    /// <returns>The result as <see cref="string"/>.</returns>
+    string UploadToFilehorst();
 
-        /// <summary>
-        /// Uploads the file to filehorst.de.
-        /// </summary>
-        /// <returns>The result as <see cref="string"/>.</returns>
-        string UploadToFilehorst();
+    /// <summary>
+    /// Uploads the file to Google Drive.
+    /// </summary>
+    /// <returns>The result as <see cref="string"/>.</returns>
+    string UploadToGDrive();
 
-        /// <summary>
-        /// Uploads the file to Google Drive.
-        /// </summary>
-        /// <returns>The result as <see cref="string"/>.</returns>
-        string UploadToGDrive();
-
-        /// <summary>
-        /// Uploads the file to mega.nz.
-        /// </summary>
-        /// <returns>The result as <see cref="string"/>.</returns>
-        Task<string> UploadToMega();
-    }
+    /// <summary>
+    /// Uploads the file to mega.nz.
+    /// </summary>
+    /// <returns>The result as <see cref="string"/>.</returns>
+    Task<string> UploadToMega();
 }

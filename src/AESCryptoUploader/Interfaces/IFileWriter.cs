@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="IFileWriter.cs" company="Hämmer Electronics">
 //   Copyright (c) All rights reserved.
 // </copyright>
@@ -7,19 +7,16 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace AESCryptoUploader.Interfaces
-{
-    using AESCryptoUploader.Models;
+namespace AESCryptoUploader.Interfaces;
 
+/// <summary>
+/// An interface to write files.
+/// </summary>
+public interface IFileWriter
+{
     /// <summary>
-    /// An interface to write files.
+    /// Writes the upload item to a file.
     /// </summary>
-    public interface IFileWriter
-    {
-        /// <summary>
-        /// Writes the upload item to a file.
-        /// </summary>
-        /// <param name="item">The upload item.</param>
-        void WriteToFile(UploadItem item);
-    }
+    /// <param name="item">The upload item.</param>
+    void WriteToFile(UploadItem item);
 }

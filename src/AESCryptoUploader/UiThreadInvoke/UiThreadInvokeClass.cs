@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="UiThreadInvokeClass.cs" company="Hämmer Electronics">
 //   Copyright (c) All rights reserved.
 // </copyright>
@@ -7,30 +7,26 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace AESCryptoUploader.UiThreadInvoke
+namespace AESCryptoUploader.UiThreadInvoke;
+
+/// <summary>
+/// A class to invoke UI events from background processes.
+/// </summary>
+public static class UiThreadInvokeClass
 {
-    using System;
-    using System.Windows.Forms;
-
     /// <summary>
-    /// A class to invoke UI events from background processes.
+    /// Handles the UI thread invocation.
     /// </summary>
-    public static class UiThreadInvokeClass
+    /// <param name="control">The control.</param>
+    /// <param name="code">The code.</param>
+    public static void UiThreadInvoke(this Control control, Action code)
     {
-        /// <summary>
-        /// Handles the UI thread invocation.
-        /// </summary>
-        /// <param name="control">The control.</param>
-        /// <param name="code">The code.</param>
-        public static void UiThreadInvoke(this Control control, Action code)
+        if (control.InvokeRequired)
         {
-            if (control.InvokeRequired)
-            {
-                control.Invoke(code);
-                return;
-            }
-
-            code.Invoke();
+            control.Invoke(code);
+            return;
         }
+
+        code.Invoke();
     }
 }

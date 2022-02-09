@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="Account.cs" company="Hämmer Electronics">
 //   Copyright (c) All rights reserved.
 // </copyright>
@@ -7,34 +7,31 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace AESCryptoUploader.Models
+namespace AESCryptoUploader.Models;
+
+/// <summary>
+/// The account class.
+/// </summary>
+[Serializable]
+public class Account
 {
-    using System;
+    /// <summary>
+    /// Gets or sets the user name.
+    /// </summary>
+    public string UserName { get; set; } = string.Empty;
 
     /// <summary>
-    /// The account class.
+    /// Gets or sets the password.
     /// </summary>
-    [Serializable]
-    public class Account
-    {
-        /// <summary>
-        /// Gets or sets the user name.
-        /// </summary>
-        public string UserName { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Gets or sets the password.
-        /// </summary>
-        public string Password { get; set; } = string.Empty;
+    /// <summary>
+    /// Gets or sets the name.
+    /// </summary>
+    public string Name { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        public string Name { get; set; } = string.Empty;
-
-        /// <summary>
-        /// Gets or sets the client identifier.
-        /// </summary>
-        public string ClientId { get; set; } = string.Empty;
-    }
+    /// <summary>
+    /// Gets or sets the client identifier.
+    /// </summary>
+    public string ClientId { get; set; } = string.Empty;
 }
