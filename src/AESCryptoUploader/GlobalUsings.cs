@@ -1,4 +1,4 @@
-#pragma warning disable IDE0065 // Die global using-Anweisung wurde falsch platziert.
+#pragma warning disable IDE0065 // Die using-Anweisung wurde falsch platziert.
 global using System.Collections;
 global using System.ComponentModel;
 global using System.Security.Cryptography;
@@ -32,4 +32,4 @@ global using Serilog;
 global using GoogleFile = Google.Apis.Drive.v3.Data.File;
 global using IOFile = System.IO.File;
 global using AESCrypt = SharpAESCrypt.SharpAESCrypt;
-#pragma warning restore IDE0065 // Die global using-Anweisung wurde falsch platziert.
+#pragma warning restore IDE0065 // Die using-Anweisung wurde falsch platziert.
