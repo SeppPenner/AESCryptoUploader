@@ -184,7 +184,7 @@ public partial class Main : Form
     private void InitializeLanguageManager()
     {
         this.languageManager.SetCurrentLanguage("de-DE");
-        this.languageManager.OnLanguageChanged += this.OnLanguageChanged;
+        this.languageManager.OnLanguageChanged += this.OnLanguageChanged!;
     }
 
     /// <summary>
@@ -233,9 +233,9 @@ public partial class Main : Form
     private IFileUploader GetFileUploader(string fileName)
     {
         var fileUploader = new FileUploader(this.configuration, fileName);
-        fileUploader.OnUploadSuccessfulGDrive += this.OnUploadSuccessfulGDrive;
-        fileUploader.OnUploadProgressChangedGDrive += this.OnUploadProgressChangedGDrive;
-        fileUploader.OnUploadProgressChangedMega += this.OnUploadProgressChangedMega;
+        fileUploader.OnUploadSuccessfulGDrive += this.OnUploadSuccessfulGDrive!;
+        fileUploader.OnUploadProgressChangedGDrive += this.OnUploadProgressChangedGDrive!;
+        fileUploader.OnUploadProgressChangedMega += this.OnUploadProgressChangedMega!;
         return fileUploader;
     }
 
@@ -346,7 +346,7 @@ public partial class Main : Form
     {
         this.worker.WorkerReportsProgress = true;
         this.worker.WorkerSupportsCancellation = true;
-        this.worker.DoWork += this.EncryptionAndUploadWork;
+        this.worker.DoWork += this.EncryptionAndUploadWork!;
     }
 
     /// <summary>
