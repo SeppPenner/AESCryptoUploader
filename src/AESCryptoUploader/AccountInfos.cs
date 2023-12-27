@@ -150,7 +150,7 @@ public partial class AccountInfos : Form
     {
         this.worker.WorkerReportsProgress = true;
         this.worker.WorkerSupportsCancellation = true;
-        this.worker.DoWork += this.AccountInfosWork;
+        this.worker.DoWork += this.AccountInfosWork!;
     }
 
     /// <summary>

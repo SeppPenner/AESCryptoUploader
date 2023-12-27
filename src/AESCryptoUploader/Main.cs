@@ -141,7 +141,9 @@ public partial class Main : Form
                 return;
             }
 
+#pragma warning disable Serilog004 // Constant MessageTemplate verifier
             Log.Information(this.language.GetWord("StartupSuccessful"));
+#pragma warning restore Serilog004 // Constant MessageTemplate verifier
         }
         catch (Exception ex)
         {
@@ -504,13 +506,17 @@ public partial class Main : Form
             }
 
             var item = this.fileCryptor.EncryptFile(fileName, outputFolder);
+#pragma warning disable Serilog004 // Constant MessageTemplate verifier
             Log.Information(this.language.GetWord("EncryptionFinished") + fileName);
+#pragma warning restore Serilog004 // Constant MessageTemplate verifier
             var fileUploader = this.GetFileUploader(item.NewFileName);
             var uploadedFile = await UploadFile(fileUploader);
             Wait(uploadedFile);
             AddLinksToItem(item, uploadedFile);
             this.fileWriter.WriteToFile(item);
+#pragma warning disable Serilog004 // Constant MessageTemplate verifier
             Log.Information(this.language.GetWord("UploadFinished") + fileName);
+#pragma warning restore Serilog004 // Constant MessageTemplate verifier
         }
         catch (Exception ex)
         {
@@ -618,7 +624,13 @@ public partial class Main : Form
     /// <param name="e">The event args.</param>
     private void ComboBoxLanguageSelectedIndex(object sender, EventArgs e)
     {
-        var currentLanguage = this.comboBoxLanguage.SelectedItem.ToString();
+        var currentLanguage = this.comboBoxLanguage.SelectedItem?.ToString();
+
+        if (string.IsNullOrWhiteSpace(currentLanguage))
+        {
+            return;
+        }
+
         this.languageManager.SetCurrentLanguageFromName(currentLanguage);
 
         if (this.language is null)
@@ -626,6 +638,8 @@ public partial class Main : Form
             return;
         }
 
+#pragma warning disable Serilog004 // Constant MessageTemplate verifier
         Log.Information(this.language.GetWord("LanguageChanged") + currentLanguage);
+#pragma warning restore Serilog004 // Constant MessageTemplate verifier
     }
 }

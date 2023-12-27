@@ -35,8 +35,8 @@ public class FileUploader : IFileUploader
     {
         this.configuration = configuration;
         this.FileName = fileName;
-        this.customGDriveService.OnUploadProgressChanged += this.OnUploadProgressChangedGDriveService;
-        this.customGDriveService.OnUploadSuccessful += this.OnUploadSuccessfulGDriveService;
+        this.customGDriveService.OnUploadProgressChanged += this.OnUploadProgressChangedGDriveService!;
+        this.customGDriveService.OnUploadSuccessful += this.OnUploadSuccessfulGDriveService!;
     }
 
     /// <inheritdoc cref="IFileUploader"/>
@@ -228,7 +228,7 @@ public class FileUploader : IFileUploader
     private IProgress<double> GetProgress()
     {
         var progress = new Progress<double>();
-        progress.ProgressChanged += this.OnUploadProgressChangedMegaInternal;
+        progress.ProgressChanged += this.OnUploadProgressChangedMegaInternal!;
         return progress;
     }
 
