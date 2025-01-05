@@ -12,11 +12,10 @@ namespace AESCryptoUploader.Models;
 /// <summary>
 /// The accounts class.
 /// </summary>
-[Serializable]
 public class Config
 {
     /// <summary>
     /// Gets or sets the accounts.
     /// </summary>
-    public List<Account> Accounts { get; set; } = new();
+    public List<Account> Accounts { get; set; } = [];
 }

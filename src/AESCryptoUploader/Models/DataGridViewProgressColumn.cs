@@ -30,7 +30,9 @@ public class DataGridViewProgressColumn : DataGridViewImageColumn
     /// <summary>
     /// Gets the cell template.
     /// </summary>
-    public override sealed DataGridViewCell CellTemplate
+#pragma warning disable WFO1000 // Fehlende Codeserialisierungskonfiguration für Eigenschafteninhalt
+    public override sealed DataGridViewCell? CellTemplate
+#pragma warning restore WFO1000 // Fehlende Codeserialisierungskonfiguration für Eigenschafteninhalt
     {
         get => base.CellTemplate;
         set
@@ -49,7 +51,9 @@ public class DataGridViewProgressColumn : DataGridViewImageColumn
     /// Gets or sets the progress bar color.
     /// </summary>
     [Browsable(true)]
+#pragma warning disable WFO1000 // Fehlende Codeserialisierungskonfiguration für Eigenschafteninhalt
     public Color ProgressBarColor
+#pragma warning restore WFO1000 // Fehlende Codeserialisierungskonfiguration für Eigenschafteninhalt
     {
         get
         {
@@ -96,5 +100,5 @@ public class DataGridViewProgressColumn : DataGridViewImageColumn
     /// <summary>
     /// Gets the progress bar cell template.
     /// </summary>
-    private DataGridViewProgressCell ProgressBarCellTemplate => (DataGridViewProgressCell)this.CellTemplate;
+    private DataGridViewProgressCell? ProgressBarCellTemplate => (DataGridViewProgressCell?)this.CellTemplate;
 }

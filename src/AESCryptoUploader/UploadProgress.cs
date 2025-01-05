@@ -52,7 +52,14 @@ public partial class UploadProgress : Form
             return 0;
         }
 
-        return (double)this.dataGridViewFileUpload.Rows[lastRow].Cells[2].Value;
+        var rowValue = this.dataGridViewFileUpload.Rows[lastRow].Cells[2].Value;
+
+        if (rowValue is null)
+        {
+            return 0;
+        }
+
+        return (double)rowValue;
     }
 
     /// <summary>
@@ -69,8 +76,10 @@ public partial class UploadProgress : Form
                 foreach (DataGridViewRow row in this.dataGridViewFileUpload.Rows)
                 {
                     var fileNameWithoutPath = Path.GetFileName(fileName);
+                    var rowName = row.Cells[0].Value ?? string.Empty;
+                    var rowFileName = row.Cells[1].Value ?? string.Empty;
 
-                    if (!row.Cells[0].Value.Equals(hoster) || !row.Cells[1].Value.Equals(fileNameWithoutPath))
+                    if (!rowName.Equals(hoster) || !rowFileName.Equals(fileNameWithoutPath))
                     {
                         continue;
                     }

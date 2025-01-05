@@ -31,5 +31,5 @@ global using Serilog;
 
 global using GoogleFile = Google.Apis.Drive.v3.Data.File;
 global using IOFile = System.IO.File;
-global using AESCrypt = SharpAESCrypt.SharpAESCrypt;
+global using AESCrypt = SharpAESCrypt.AESCrypt;
 #pragma warning restore IDE0065 // Die using-Anweisung wurde falsch platziert.

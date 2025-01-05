@@ -52,7 +52,7 @@ public class DataGridViewProgressCell : DataGridViewImageCell
     /// <summary>
     /// Gets or sets the value type.
     /// </summary>
-    public override sealed Type ValueType
+    public override sealed Type? ValueType
     {
         get => base.ValueType;
         set => base.ValueType = value;
@@ -94,11 +94,11 @@ public class DataGridViewProgressCell : DataGridViewImageCell
     /// <param name="context">The context.</param>
     /// <returns>The formatted value as <see cref="object"/>.</returns>
     protected override object GetFormattedValue(
-        object value,
+        object? value,
         int rowIndex,
         ref DataGridViewCellStyle cellStyle,
-        TypeConverter valueTypeConverter,
-        TypeConverter formattedValueTypeConverter,
+        TypeConverter? valueTypeConverter,
+        TypeConverter? formattedValueTypeConverter,
         DataGridViewDataErrorContexts context)
     {
         return EmptyImage;
@@ -124,9 +124,9 @@ public class DataGridViewProgressCell : DataGridViewImageCell
           Rectangle cellBounds,
           int rowIndex,
           DataGridViewElementStates cellState,
-          object value,
-          object formattedValue,
-          string errorText,
+          object? value,
+          object? formattedValue,
+          string? errorText,
           DataGridViewCellStyle cellStyle,
           DataGridViewAdvancedBorderStyle advancedBorderStyle,
           DataGridViewPaintParts paintParts)

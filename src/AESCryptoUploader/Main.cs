@@ -142,7 +142,8 @@ public partial class Main : Form
             }
 
 #pragma warning disable Serilog004 // Constant MessageTemplate verifier
-            Log.Information(this.language.GetWord("StartupSuccessful"));
+            var startupSuccessful = this.language.GetWord("StartupSuccessful") ?? string.Empty;
+            Log.Information(startupSuccessful);
 #pragma warning restore Serilog004 // Constant MessageTemplate verifier
         }
         catch (Exception ex)

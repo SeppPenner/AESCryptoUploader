@@ -41,12 +41,16 @@ public partial class AccountInfos : Form
     /// <summary>
     /// Gets or sets the configuration.
     /// </summary>
+#pragma warning disable WFO1000 // Fehlende Codeserialisierungskonfiguration für Eigenschafteninhalt
     public Config Config { get; set; } = new();
+#pragma warning restore WFO1000 // Fehlende Codeserialisierungskonfiguration für Eigenschafteninhalt
 
     /// <summary>
     /// Gets or sets the current language.
     /// </summary>
+#pragma warning disable WFO1000 // Fehlende Codeserialisierungskonfiguration für Eigenschafteninhalt
     public ILanguage? CurrentLanguage { get; set; }
+#pragma warning restore WFO1000 // Fehlende Codeserialisierungskonfiguration für Eigenschafteninhalt
 
     /// <summary>
     /// Logs the accounts.
