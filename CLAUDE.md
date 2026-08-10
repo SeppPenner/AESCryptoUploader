@@ -64,6 +64,10 @@ fall back to another language, so a new key has to be added to `de-DE.xml` **and
   Setup only treats a script as UTF-8 when the BOM is present, otherwise it uses the system code
   page and `Hämmer Electronics` ends up as `HÃ¤mmer Electronics` in the installer. Do not save
   this file without a BOM.
+- **AES file format version.** `SharpAESCrypt` 3.0.0 writes the AES Crypt stream format version 3
+  by default, the previously referenced 2.0.3 wrote version 2. Files encrypted from application
+  version 1.0.8 on therefore need a decryptor that understands version 3, older AES Crypt tools
+  only read version 2. Reading older files is unaffected.
 - **Window title.** `Main.InitializeCaption` uses `Application.ProductVersion`, which is the
   GitVersion informational version, so the title shows the commit hash on untagged commits.
 - **Filehorst upload is a stub.** `FileUploader.UploadToFilehorst` returns an empty string. The
