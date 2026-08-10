@@ -16,6 +16,18 @@ namespace AESCryptoUploader.Implementation;
 /// <seealso cref="IErrorHandler"/>
 public class ErrorHandler : IErrorHandler
 {
+    /// <summary>
+    /// The dialog title used as long as no language is available.
+    /// </summary>
+    private const string FallbackTitle = "Error";
+
+    /// <inheritdoc cref="IErrorHandler"/>
+    /// <summary>
+    ///     Gets or sets the current language used for the dialog title.
+    /// </summary>
+    /// <seealso cref="IErrorHandler"/>
+    public ILanguage? CurrentLanguage { get; set; }
+
     /// <inheritdoc cref="IErrorHandler"/>
     /// <summary>
     ///     Shows a message box with the <see cref="Exception" />.
@@ -24,6 +36,8 @@ public class ErrorHandler : IErrorHandler
     /// <seealso cref="IErrorHandler"/>
     public void Show(Exception exception)
     {
-        MessageBox.Show(exception.StackTrace, exception.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        var title = this.CurrentLanguage?.GetWord("ErrorTitle") ?? FallbackTitle;
+        var text = $"{exception.Message}{Environment.NewLine}{Environment.NewLine}{exception.StackTrace}";
+        MessageBox.Show(text, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
     }
 }

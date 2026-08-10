@@ -128,6 +128,18 @@ public partial class Main : Form
     }
 
     /// <summary>
+    /// Gets the localized text for the given key with the file name filled into the placeholder.
+    /// </summary>
+    /// <param name="language">The language.</param>
+    /// <param name="key">The key.</param>
+    /// <param name="fileName">The file name.</param>
+    /// <returns>The localized text as <see cref="string"/>.</returns>
+    private static string GetLocalizedText(ILanguage language, string key, string fileName)
+    {
+        return string.Format(language.GetWord(key) ?? string.Empty, fileName);
+    }
+
+    /// <summary>
     /// Tries to initialize the view.
     /// </summary>
     private void TryInitialize()
@@ -211,6 +223,7 @@ public partial class Main : Form
     private void OnLanguageChanged(object sender, EventArgs eventArgs)
     {
         this.language = this.languageManager.GetCurrentLanguage();
+        this.errorHandler.CurrentLanguage = this.language;
         this.labelLanguage.Text = this.language.GetWord("SelectLanguage");
         this.AccountInfosToolStripMenuItem.Text = this.language.GetWord("AccountInfoToolStripMenuItem");
         this.buttonChooseFiles.Text = this.language.GetWord("ChooseFiles");
@@ -508,7 +521,7 @@ public partial class Main : Form
 
             var item = this.fileCryptor.EncryptFile(fileName, outputFolder);
 #pragma warning disable Serilog004 // Constant MessageTemplate verifier
-            Log.Information(this.language.GetWord("EncryptionFinished") + fileName);
+            Log.Information(GetLocalizedText(this.language, "EncryptionFinished", fileName));
 #pragma warning restore Serilog004 // Constant MessageTemplate verifier
             var fileUploader = this.GetFileUploader(item.NewFileName);
             var uploadedFile = await UploadFile(fileUploader);
@@ -516,7 +529,7 @@ public partial class Main : Form
             AddLinksToItem(item, uploadedFile);
             this.fileWriter.WriteToFile(item);
 #pragma warning disable Serilog004 // Constant MessageTemplate verifier
-            Log.Information(this.language.GetWord("UploadFinished") + fileName);
+            Log.Information(GetLocalizedText(this.language, "UploadFinished", fileName));
 #pragma warning restore Serilog004 // Constant MessageTemplate verifier
         }
         catch (Exception ex)

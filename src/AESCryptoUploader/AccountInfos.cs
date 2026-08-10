@@ -57,6 +57,7 @@ public partial class AccountInfos : Form
     /// </summary>
     public void LogAccountsPublic()
     {
+        this.errorHandler.CurrentLanguage = this.CurrentLanguage;
         this.worker.RunWorkerAsync();
     }
 

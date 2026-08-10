@@ -107,5 +107,9 @@
 			<Key>Hoster</Key>
 			<Value>Hoster</Value>
 		</Word>
+		<Word>
+			<Key>ErrorTitle</Key>
+			<Value>Error</Value>
+		</Word>
 	</Words>
 </Language>

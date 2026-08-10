@@ -60,10 +60,10 @@ fall back to another language, so a new key has to be added to `de-DE.xml` **and
 
 - **Setup executable is tracked.** `Setup/AESCryptoUploader-Setup.exe` is in the repository
   although `.gitignore` excludes `*.exe`. It only gets updated with `git add -f`.
-- **Inno Setup script encoding.** `Setup/AESCryptoUploader-Setup.iss` is stored in the Windows
-  code page without a BOM. Inno Setup only treats a script as UTF-8 when the BOM is present,
-  otherwise it uses the system code page, so an editor that saves UTF-8 without BOM turns
-  `Hämmer Electronics` into `HÃ¤mmer Electronics` in the installer.
+- **Inno Setup script encoding.** `Setup/AESCryptoUploader-Setup.iss` is UTF-8 **with** BOM. Inno
+  Setup only treats a script as UTF-8 when the BOM is present, otherwise it uses the system code
+  page and `Hämmer Electronics` ends up as `HÃ¤mmer Electronics` in the installer. Do not save
+  this file without a BOM.
 - **Window title.** `Main.InitializeCaption` uses `Application.ProductVersion`, which is the
   GitVersion informational version, so the title shows the commit hash on untagged commits.
 - **Filehorst upload is a stub.** `FileUploader.UploadToFilehorst` returns an empty string. The
