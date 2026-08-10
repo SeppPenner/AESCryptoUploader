@@ -10,7 +10,7 @@ documentation file next to the encrypted file that contains the password and the
 
 - Solution: `src/AESCryptoUploader.sln`, one project `src/AESCryptoUploader/AESCryptoUploader.csproj`.
 - No test project, no `.github` workflows. The AppVeyor badge in the README is the only CI.
-- Target framework `net9.0-windows`, `WinExe`, `RuntimeIdentifiers win-x64`.
+- Target framework `net10.0-windows`, `WinExe`, `RuntimeIdentifiers win-x64`.
 - UI text comes from `HaemmerElectronics.SeppPenner.Language`, the language files live in
   `src/AESCryptoUploader/languages/*.xml` and are copied to the output folder.
 - The accounts are read at startup from `Config.xml` in the working directory. The tracked

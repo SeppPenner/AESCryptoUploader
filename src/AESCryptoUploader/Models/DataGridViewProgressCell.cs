@@ -142,6 +142,9 @@ public class DataGridViewProgressCell : DataGridViewImageCell
         _ = new SolidBrush(cellStyle.BackColor);
         Brush foreColorBrush = new SolidBrush(cellStyle.ForeColor);
 
+        // The cell style font is nullable, the drawing methods are not.
+        var font = cellStyle.Font ?? this.DataGridView?.DefaultCellStyle.Font ?? Control.DefaultFont;
+
         // Draws the cell grid
         base.Paint(
             g,
@@ -159,8 +162,8 @@ public class DataGridViewProgressCell : DataGridViewImageCell
         float posX = cellBounds.X;
         float posY = cellBounds.Y;
 
-        float textWidth = TextRenderer.MeasureText(progressVal + "%", cellStyle.Font).Width;
-        float textHeight = TextRenderer.MeasureText(progressVal + "%", cellStyle.Font).Height;
+        float textWidth = TextRenderer.MeasureText(progressVal + "%", font).Width;
+        float textHeight = TextRenderer.MeasureText(progressVal + "%", font).Height;
 
         // valuating text position according to alignment
         switch (cellStyle.Alignment)
@@ -219,7 +222,7 @@ public class DataGridViewProgressCell : DataGridViewImageCell
                 cellBounds.Y + 2,
                 Convert.ToInt32(percentage * cellBounds.Width * 0.8),
                 (cellBounds.Height / 1) - 5);
-            g.DrawString(progressVal + "%", cellStyle.Font, foreColorBrush, posX, posY);
+            g.DrawString(progressVal + "%", font, foreColorBrush, posX, posY);
         }
         else
         {
@@ -227,14 +230,14 @@ public class DataGridViewProgressCell : DataGridViewImageCell
             {
                 g.DrawString(
                     progressVal + "%",
-                    cellStyle.Font,
+                    font,
                     new SolidBrush(cellStyle.SelectionForeColor),
                     posX,
                     posX);
             }
             else
             {
-                g.DrawString(progressVal + "%", cellStyle.Font, foreColorBrush, posX, posY);
+                g.DrawString(progressVal + "%", font, foreColorBrush, posX, posY);
             }
         }
     }

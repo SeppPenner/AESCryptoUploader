@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net9.0-windows</TargetFramework>
+        <TargetFramework>net10.0-windows</TargetFramework>
         <UseWindowsForms>true</UseWindowsForms>
         <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
         <LangVersion>latest</LangVersion>
@@ -16,17 +16,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="GitVersion.MsBuild" Version="6.0.5">
+        <PackageReference Include="GitVersion.MsBuild" Version="6.8.2">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Google.Apis.Drive.v3" Version="1.68.0.3627" />
-        <PackageReference Include="HaemmerElectronics.SeppPenner.Language" Version="1.1.6" />
-        <PackageReference Include="MegaApiClient" Version="1.10.4" />
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-        <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
-        <PackageReference Include="SharpAESCrypt" Version="2.0.3" />
-        <PackageReference Include="System.Private.Uri" Version="4.3.2" />
+        <PackageReference Include="Google.Apis.Drive.v3" Version="1.75.0.4218" />
+        <PackageReference Include="HaemmerElectronics.SeppPenner.Language" Version="1.1.8" />
+        <PackageReference Include="MegaApiClient" Version="1.10.5" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+        <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+        <PackageReference Include="SharpAESCrypt" Version="3.0.0" />
     </ItemGroup>
 
     <ItemGroup>
