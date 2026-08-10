@@ -15,9 +15,9 @@ FOR /d /r . %%d in (bin,obj) DO (
 )
 
 @ECHO on
-@ECHO.Building solution...
+@ECHO.Publishing self contained for win-x64...
 @cd AESCryptoUploader
-@dotnet publish -c Release -o bin/publish
+@dotnet publish -c Release -r win-x64 --self-contained true -o bin/publish
 @ECHO.Deleting *.pdb files...
 @cd bin/publish
 @del *.pdb

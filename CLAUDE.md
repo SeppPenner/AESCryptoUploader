@@ -81,11 +81,11 @@ Version numbers come from GitVersion, driven by lightweight tags on exact commit
 order, otherwise a prerelease version is burned into the shipped executable:
 
 1. Add the new version to `Changelog.md`.
-2. Set `MyAppVersion` in `Setup/AESCryptoUploader-Setup.iss` (keep the encoding and CRLF).
+2. Set `MyAppVersion` in `Setup/AESCryptoUploader-Setup.iss` (keep the BOM and CRLF).
 3. Commit.
 4. Tag that commit, lightweight: `git tag 1.0.8`.
-5. Run `Setup/build-setup-files.bat`. It deletes `bin` and `obj` below `src`, publishes into
-   `src/AESCryptoUploader/bin/publish` and removes the `*.pdb` files.
+5. Run `Setup/build-setup-files.bat`. It deletes `bin` and `obj` below `src`, publishes self
+   contained for `win-x64` into `src/AESCryptoUploader/bin/publish` and removes the `*.pdb` files.
 6. Compile the installer:
    `& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" Setup\AESCryptoUploader-Setup.iss`.
 7. `git add -f Setup/AESCryptoUploader-Setup.exe` and commit as `Updated setup.`.
