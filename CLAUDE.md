@@ -58,8 +58,9 @@ fall back to another language, so a new key has to be added to `de-DE.xml` **and
 
 ## Known quirks
 
-- **Setup executable is tracked.** `Setup/AESCryptoUploader-Setup.exe` is in the repository
-  although `.gitignore` excludes `*.exe`. It only gets updated with `git add -f`.
+- **Setup executable belongs on the release.** `Setup/AESCryptoUploader-Setup.exe` was in the
+  repository up to and including 1.0.8, added with `git add -f` against the `*.exe` rule of
+  `.gitignore`. It hangs on the GitHub release of its version tag now, do not add it back.
 - **Inno Setup script encoding.** `Setup/AESCryptoUploader-Setup.iss` is UTF-8 **with** BOM. Inno
   Setup only treats a script as UTF-8 when the BOM is present, otherwise it uses the system code
   page and `Hämmer Electronics` ends up as `HÃ¤mmer Electronics` in the installer. Do not save
@@ -92,8 +93,26 @@ order, otherwise a prerelease version is burned into the shipped executable:
    contained for `win-x64` into `src/AESCryptoUploader/bin/publish` and removes the `*.pdb` files.
 6. Compile the installer:
    `& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" Setup\AESCryptoUploader-Setup.iss`.
-7. `git add -f Setup/AESCryptoUploader-Setup.exe` and commit as `Updated setup.`.
-8. `git push origin master` and `git push origin <tag>`.
+7. `git push origin master` and `git push origin <tag>`.
+8. Attach `Setup/AESCryptoUploader-Setup.exe` to the GitHub release of that tag. **Never commit the
+   installer.** `Setup/` is the `OutputDir` of the Inno Setup script, so the file lands there during
+   the build and `.gitignore` covers it afterwards.
+
+For step 8 there is no `gh` on this machine. The GitHub API does the job, with the token that
+`git push` already uses, so nothing has to be stored anywhere:
+
+```bash
+c=$(printf "protocol=https\nhost=github.com\n\n" | git credential fill)
+tok=$(printf "%s" "$c" | grep '^password=' | cut -d= -f2-)
+id=$(curl -s -X POST -H "Authorization: Bearer $tok" \
+  https://api.github.com/repos/SeppPenner/AESCryptoUploader/releases \
+  -d '{"tag_name":"1.0.9","name":"1.0.9"}' | grep -m1 '"id"' | tr -dc 0-9)
+curl -s -X POST -H "Authorization: Bearer $tok" -H "Content-Type: application/octet-stream" \
+  --data-binary @Setup/AESCryptoUploader-Setup.exe \
+  "https://uploads.github.com/repos/SeppPenner/AESCryptoUploader/releases/$id/assets?name=AESCryptoUploader-Setup.exe"
+```
+
+Never print that token, and never write it into a file.
 
 ## Git
 
